@@ -35,18 +35,10 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highScore;
     }
     // guess too high
-  } else if (guess > secretNumber) {
+  } else if (guess != secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = '📈 too high';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = '❌ game over';
-    }
-    // guess too low
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = '📉 too low';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? '📈 too high' : '📉 too low';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
